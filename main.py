@@ -22,6 +22,12 @@ async def cmd_start(message: types.Message):
     #await message.answer(f"👋 Добро пожаловать, {message.from_user.full_name}!\nInvestFunds\nАналитика по рынкам акций, облигаций, валют, макроэкономике. 200+ источников. Российский и глобальные рынки.\n Уникальная возможность для стабильного заработка в Telegram\n \n🔸 Выберите пункт меню:", reply_markup=nav.menu_kb())
     await bot.send_photo(message.chat.id, photo=photo, caption=f"👋 Добро пожаловать, {message.from_user.full_name}!\n \nInvestFunds\n \nАналитика по рынкам акций, облигаций, валют, макроэкономике. 200+ источников. Украинский и глобальные рынки.\n \nУникальная возможность для стабильного заработка в Telegram\n \n🔸 Выберите пункт меню:", reply_markup=nav.menu_kb())
 
+@dp.callback_query_handler(text='repl')
+async def repl_msg(call: types.CallbackQuery):
+    # photo = InputFile('assets/balance.jpg')
+    await call.message.answer(text="Выберите тип пополнения" ,reply_markup=nav.repl_kb())
+
+
 # Обробник повідомлень
 @dp.message_handler()
 async def bot_msg(message: types.Message):

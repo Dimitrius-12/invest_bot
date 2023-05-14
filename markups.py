@@ -32,6 +32,13 @@ def support_kb():
     markup.insert(button1)
     return markup
 
+
+def repl_kb():
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    buttons = ["QIWI", "Visa MasterCard", "USDT TRC20"]
+    markup.add(*buttons)
+    return markup
+
 def how_to_kb():
     markup = types.InlineKeyboardMarkup(row_width=1)
     btn1 = types.InlineKeyboardButton(text="Продолжить", callback_data="continue", url='https://telegra.ph/InvestFund-03-27')
